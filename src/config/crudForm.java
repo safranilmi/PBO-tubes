@@ -31,7 +31,7 @@ public class crudForm extends javax.swing.JFrame {
         jTable1.setModel(model);
         load_table();
     }
-     
+    
     private void load_table() {
         int row = jTable1.getRowCount();
         for(int i=0; i<row; i++){
