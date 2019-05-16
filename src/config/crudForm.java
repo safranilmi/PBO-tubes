@@ -1,5 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package config;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,13 +11,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Asus
@@ -25,7 +22,6 @@ public class crudForm extends javax.swing.JFrame {
      */
     public crudForm() {
         initComponents();
-        
         String []title={"ID Produk","Nama","Harga"};
         model = new DefaultTableModel (title,0);
         jTable1.setModel(model);
@@ -52,6 +48,7 @@ public class crudForm extends javax.swing.JFrame {
     
     private void kosong(){
         //mereset isi tabel
+        input1.setText("");
         input2.setText("");
         input3.setText("");
         cari.setText("");
@@ -73,16 +70,17 @@ public class crudForm extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         cari = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         input2 = new javax.swing.JTextField();
+        input1 = new javax.swing.JTextField();
         input3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 0));
 
         jButton2.setText("Ganti");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,8 +121,10 @@ public class crudForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("PRODUK");
+
+        jLabel2.setText("ID Produk");
 
         jLabel3.setText("Nama Produk");
 
@@ -153,6 +153,30 @@ public class crudForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jButton1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(input1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                        .addComponent(input2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(input3, javax.swing.GroupLayout.Alignment.LEADING)))))
+                        .addGap(0, 37, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -163,38 +187,18 @@ public class crudForm extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton4))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jButton1))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(input2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(input3, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton5)))
-                        .addGap(0, 37, Short.MAX_VALUE)))
+                                        .addComponent(jButton4)))))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(input2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +232,7 @@ public class crudForm extends javax.swing.JFrame {
             // TODO add your handling code here:
             //Tambah isi tabel
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/galeri_itera","root","");
-            conn.createStatement().executeUpdate("insert into Produk values"+"(default,'"+input2.getText()+"','"+input3.getText()+"')");
+            conn.createStatement().executeUpdate("insert into Produk values"+"('"+input1.getText()+"','"+input2.getText()+"','"+input3.getText()+"')");
             load_table();
             kosong();
         } catch (SQLException ex) {
@@ -242,7 +246,7 @@ public class crudForm extends javax.swing.JFrame {
             // TODO add your handling code here:
             //Ganti isi tabel
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/galeri_itera","root","");
-            conn.createStatement().executeUpdate("update Produk set nama_produk='"+input2.getText()+"', Harga='"+input3.getText()+"' where nama_produk='"+input2.getText()+"'");
+            conn.createStatement().executeUpdate("update Produk set nama_produk='"+input2.getText()+"', Harga='"+input3.getText()+"' where id_produk='"+input1.getText()+"'");
             load_table();
             kosong();
         } catch (SQLException ex) {
@@ -255,6 +259,7 @@ public class crudForm extends javax.swing.JFrame {
         //mengklik isi table untuk dilihat / diganti / dihapus
         int i = jTable1.getSelectedRow();
         if(i>-1){
+            input1.setText(model.getValueAt(i, 0).toString());
             input2.setText(model.getValueAt(i, 1).toString());
             input3.setText(model.getValueAt(i, 2).toString());
         }
@@ -272,7 +277,7 @@ public class crudForm extends javax.swing.JFrame {
             // TODO add your handling code here:
             //tombol hapus
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/galeri_itera","root","");
-            conn.createStatement().executeUpdate("delete from Produk where nama_produk='"+input2.getText()+"'");
+            conn.createStatement().executeUpdate("delete from Produk where id_produk='"+input1.getText()+"'");
             load_table();
             kosong();
         } catch (SQLException ex) {
@@ -336,6 +341,7 @@ public class crudForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cari;
+    private javax.swing.JTextField input1;
     private javax.swing.JTextField input2;
     private javax.swing.JTextField input3;
     private javax.swing.JButton jButton1;
@@ -344,6 +350,7 @@ public class crudForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
