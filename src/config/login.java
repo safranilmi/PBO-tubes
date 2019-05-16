@@ -182,6 +182,14 @@ public class login extends javax.swing.JFrame {
             
             crudForm info = new crudForm();
             info.setVisible(true);
+            
+        }else if(username.contains("mahasiswa") && (password.contains("user"))){
+            jtxtUserName.setText(null);
+            jPassword.setText(null);
+            systemExit();
+            
+            bayar info = new bayar();
+            info.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Salah username atau password", "Login Gagal", JOptionPane.ERROR_MESSAGE);
             jPassword.setText(null);
